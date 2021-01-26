@@ -1,1 +1,11 @@
 Test Git Quick Start demo
+
+git init                       => to initialse the Git
+
+git status                     => to know the status
+
+git add  -A, --all             => add changes from all tracked and untracked files
+
+git commit -m " some message " => to track the files
+
+git push  -u  link/(orgin master/main) => to update in repos
