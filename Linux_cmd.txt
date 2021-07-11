@@ -1,0 +1,300 @@
+Linux Basic Terminal command :
+
+open the terminal in (ubuntu/Linux) : cmd(ctr)  + alt + T 
+
+Command used in Linux : "COMMAND ARE CASE-SENSITIVE"
+
+	date 			- show current date
+	cal  			- show calender of current month
+	cal -y 			- show whole calender of the current year
+	cal 2020		- show whole calender of 2020 
+	cal 1 2020		- show calender of jan 2020 (1 mean jan)
+	cal -3			- show calender of 3 month(pre ,current, future month)
+	clear 			- clear the terminal
+	exit			- exit the terminal session
+	
+
+LINUX FILE SYSTEM :
+
+	Tree like structure(Directory tree)
+	Directory is same as folder
+	/ - mean root root directory
+	Root directory has :
+			bin 	- executable files are here
+			opt 	- optional file are here
+			home 	- like user directory in windows
+			temp 	- temporary files are here
+			var 	- variable which change time to time like log file
+			so on...
+			
+	Relative path : . - mean current path , .. - mean parent path
+	absolute path : / from root directory . Ex: /home/name/file.txt
+			
+	Command Used :
+	
+		pwd 			- print current working directory (initially (default) set as home directory)
+		ls				- list the current items(folders, file, etc..) in the working directory
+		cd 				- change directory
+		cd /			- change to root directory
+		cd ~			- change to home directory
+		cd -			- back to previous working directory
+		
+LINUX LINKS :
+
+
+	Soft Link - same as creating short cut in windows
+				different i node (ls -i)                     cmd  =>  ln -s "original path of file or file name" softLinkName
+				different size (ls -l)							  =>  ln -s fileName softName
+	
+	Hard Link - same as copying a file in windows
+				same i node (ls -i)							cmd  =>  ln "file name" HardLinkName
+				same size (ls -l)								 =>  ln fileName HardName           ln- link
+				Cannot do hard link for a directory
+				
+
+WORKING WITH FILES:
+
+	touch command - change the timestamp of existing file or dir => help to sort in sometimes
+					or create new files
+					Example : touch file1 file2
+					
+	mkdir         - make directory  Ex: mkdir dir1 dir2
+	
+	rmdir         - remove directory if the directory empty Ex: mkdir dir1 dir2
+	
+	rm 			  - remove file or directory irrespectively
+				  - For dir   		  => rm -R dir
+				  - For file  		  => rm  file (can use -R/-r)
+				  - For force remove  => rm -Rf dir
+				  - For verbose		  => rm -Rv dir (show how delete the file. there is no need -R for file )
+				  - Confirm 		  => rm -Ri dir (Ask permission before remove)
+				  
+				  
+	cp			  - copy the file or directory to destination
+				  - Generally  cp file1 destination(new fileName or directory)
+				  - Copy diretory into another directory 
+						cp -R dir1 dir2             - dir2 is destination
+						cp -Rv dir1 dir2            - verbose like log what happened in this command
+						cp -Ri file1 file2 dir1     - if file1 and file2 already exist, -i will prompt that do want overwrite
+													  (-R include if want copy dir into another dir)
+	
+	
+	
+	
+	mv 			  - Move the file/dir  Ex: mv dir file destination (dir)
+				  - Rename the file/dir  Ex: mv fileName newFileName
+				  - Hidden a file/dir  Ex: mv fileName .fileName
+				  
+	file 		  - which reveal type of file (no concept of extention)
+					Ex: file fileName
+					
+	
+	"" ,'', \	  - help to add space in dir/file creation 
+					Ex: mkdir "My Folder" 
+					Ex: mkdir My\ Folder
+					If want remove the file(include space) , use one of these to mention file/dir name
+					
+					can inculde special character $ < > & | ; \ in  name of dir/file by precedence escape character (\)
+					
+					Ex: mkdir \$name  -include $
+					
+					cant include / (forward slash)
+					
+					
+	Shortcut keys : Tab - to auto complete
+						  double tab shows list option to proceed
+						  Ex : rm --(double tab), ls (double tab)
+					crt + l - clear
+					crt + a -  begin of line (in window ctr + <)
+					ctr + e -  end of line
+					ctr + u - cut the line (doubt)
+					ctr + y - paste
+					
+					
+	gedit  fName - graphigal editor for a file (in desktop)
+	
+	nano fName	 - command line editor (terminal)
+	
+	
+	up Arrow     - to take recent command
+	
+	history      - contain all our recent command (500)
+	
+	history -c   - clear history
+	
+	
+	less fName   - view file(cant edit)
+	
+	cat fName    - view file in same terminal(same order as in file) - like concatenate Ex: cat f1 f2
+	
+	tac fName    - view file in same terminal(reverse order as in file)
+
+					
+	head -n "no of line to show" file Name  - show the first n line Ex: head -n 4 file
+	
+	tail -n "no of line to show" file Name  - show the last n line Ex: head -n 4 file
+	
+	
+	wc -l fName => show number of line
+	
+	wc -w fName => show number of word in the file
+	
+	wc -c fName => show number of bytes
+	
+	wc -L fNmae => show length of longest Line
+	
+	wc fName    => show line number , no of word , bytes
+	
+
+Category of Linux command : 
+
+
+	1.Executable program  - Ex: cp , date
+	
+	2.Shell builtins	  - Ex: type , cd
+	
+	3.Shell scripts		  - Ex: bzidff
+	
+	4. Alias			  - Ex: ls
+	
+	
+	
+	type commandName   - tell type of command
+	
+	file path cmd name - to know exact of executable & shell scripts (most command in bin folder / user bin dir)
+	
+	
+	which commandName  - to know the absolute path of executable command (shell builtin cmd is not refer as executable)
+	
+	
+	help commandName   - cmd name is shell builtin otherwise noyhing will come, details of 'cmd name'
+	
+	
+	man commandName    - details of cmd (man- manually) and one more cmd (whatis cp - brief explaination)
+	
+	
+Multiple line command :
+
+	;     - separate each command with ;
+			it will execute all command (even one of cmd is invalid)
+			
+	
+	&&    - separate each command with &&
+			like short circuit
+			it will execute one by one command (if one of cmd is invalid, end the terminal)
+			
+			
+			
+Wildcards :
+
+	A symbol represent one or more character
+	Ex: * 		- mean match any character 
+		? 		- mean match single character
+		[range] - match the character in the range
+		[!range] - complement of [range]
+		
+		
+	To move all files to dir   =  mv * dir
+	
+	To remove all files in dir =  rm * 
+	
+	To move file start with "number", don't care about next part  = mv number* destination
+	
+	To move file start with "number", don't care about next part  = mv number* destination
+	
+	To move file start with "n", and end with "e"  				  = mv n*e destination
+	
+	Ex : cp file?.txt destination
+	
+		This cmd will copy a file like file[any character but single character].txt to destination
+		
+		we combine * and ? or other wildcards
+		
+		Ex: cp f?le* destination
+		
+		
+	Ex: cp [abc]* destination  - copy the file name start with "a", "b", "c" to destination
+		
+		cp *[!abc] destination - copy the file name is not end with "a", "b", "c" to destination
+		
+	
+	Category class : [[:upper:]] - include all upper case letter
+		
+					 [[:lower:]] - include all lower case letter
+	
+					 [[:digit:]] - include digit similar to [0-9]
+					 
+					 [[:alpha:]] - include alphabetics
+
+				     [[:alnum:]] - include alphabetics and num
+					 
+					 
+					 Ex:  cp [[:upper:]]* dest              - copy file start with upper case letter to dest
+					 
+					      cp [![:digit:]]* dest             - copy file is not start with digit to dest
+					 
+						  cp [[:upper:]]*[[:digit:]]  dest  - copy file start with upper case and end with digit to dest
+	
+	
+	
+ALIAS:
+
+	Create our own cmd with exist cmd.
+
+	Requirement : There is no cmd in system which one we are going to provide as cmd with different functionality
+				  use "type cmdName" - to check the cmd exist or not
+				  
+				  
+	syntax : 
+	
+		alias  newcmdName="our cmds may be multiple line cmd" (there is no space between =)
+		
+		
+	Ex: we are daily use one file desktop folder
+	
+		alias  openFile="gedit ~/Desktop/work/todo/ourFile"    - use openFile cmd to view ourFile 
+		
+		
+	Ex: Can make window dos cmd in linux
+	
+		alias dir="ls"
+		alias copy="cp"
+		alias cls="clear"
+		alias del="rm -i"
+		
+		
+	Delete alias command  :  unalias cmdName
+	
+	
+	if we like make alias cmd store in system , need to give alias cmd in .bashrc file in root dir
+	otherwise session based alias cmd
+	
+	
+Some Example in Bash shell :
+
+	Ex:
+		echo "Enter name"
+		read name
+		echo "The name : $name"
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
