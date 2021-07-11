@@ -9,3 +9,8 @@ git add  -A, --all             => add changes from all tracked and untracked fil
 git commit -m " some message " => to track the files
 
 git push  -u  link/(orgin master/main) => to update in repos
+
+***
+git remote add origin "git-link of the repo" => link the repo
+
+git push origin master                       => to push into repo
